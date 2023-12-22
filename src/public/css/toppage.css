@@ -1,0 +1,331 @@
+/* ここからヘッダー */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  width:100%;
+}
+/* .header {
+  display: flex;
+  padding-left: 24px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: fixed;
+  z-index:1;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+} */
+/* .lineHeader{
+  display: none;
+} */
+/* .headerSite{
+  display:none;
+} */
+/* .posseLogo {
+  padding-left: 10px;
+  z-index: 90;
+} */
+/* .topHeader {
+  display: flex;
+} */
+a {
+  text-decoration: none;
+}
+/* .topPage {
+  margin-right: 32px;
+  margin-top: 15px;
+} */
+/* .topQuiz {
+  margin-top: 15px;
+} */
+.ulLogo {
+  display: flex;
+  list-style: none;
+}
+/* .ulSNS{
+  display: flex;
+  list-style: none;
+  padding-right: 24px;
+} */
+.twitter {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  border-radius: 50%;
+  background-color: white;
+  /* box-shadow: 0 0 1px #000;微妙 */
+  text-align: center;
+}
+/* .twitterIcon {
+  width: 25px;
+  height: 20px;
+  transform: translate(0px, 15px);
+} */
+.instagram {
+  width: 50px;
+  height: 50px;
+  margin-left: 16px;
+  margin-right: 22px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 1px #000;
+  text-align: center;
+}
+.instagramIcon {
+  width: 24px;
+  height: 24px;
+  transform: translate(0px, 13px);
+}
+a {
+  color: black;
+}
+#headerButtonClick {
+  display: none;
+}
+
+/* ここからheroページ */
+main {
+  width: 984px;
+  margin: 0 auto;
+}
+.heroMain {
+  display: flex;
+  padding-top: 100px;
+}
+.heroBack {
+  align-self: center;
+  background-color: rgb(236, 235, 239);
+  border-radius: 24px;
+  padding: 50px 62px;
+  white-space: nowrap;
+  margin: 0 auto;
+  z-index: 0;
+}
+.heroTitle {
+  color: rgb(70, 137, 239);
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.8;
+}
+.heroText {
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.mainHero {
+  margin-left: -125px;
+  width: 100%;
+  height: 100%;
+}
+
+.mainHeroPicture {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+}
+.heroScroll {
+  color: gray;
+  bottom: -80px;
+  margin-left: 30px;
+  list-style: disc;
+}
+.heroScrollSpan {
+  color: black;
+}
+/* ここからメインPOSSEページ */
+.mainPosse {
+  margin-top: 150px;
+}
+.mainH {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+.mainHsub {
+  color: #0071bc;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 40px;
+}
+.mainText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.mainPicture {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+.mainP {
+  line-height: 1.8;
+  font-size: 14px;
+  width: 470px;
+}
+
+/* ここからLINEmainページ */
+.lineMain {
+  background: url(../../img/bg-line.png);
+  border-radius: 56px;
+  width: 984px;
+  height: 357px;
+  padding: 68px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  margin-bottom: 136px;
+  margin-top: 140px;
+}
+.lineMain::before {
+  background-color: rgb(0, 113, 201);
+  content: "";
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  border-radius: 56px;
+  position: absolute;
+}
+.lineMainIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  position: absolute;
+  left: 35%;
+}
+.lineTitle {
+  position: absolute;
+  font-size: 40px;
+  font-weight: bold;
+  left: 40%;
+  color: white;
+}
+.lineMainText {
+  position: absolute;
+  text-align: center;
+  top: 180px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  line-height: 1.8;
+  color: white;
+}
+.lineMainLink {
+  position: absolute;
+  top: 80%;
+  left: 35%;
+}
+.lineWhite {
+  position: absolute;
+  display: flex;
+  background-color: white;
+  border-radius: 50px;
+  width: 320px;
+  height: 50px;
+  padding: 12px;
+  justify-content: center;
+}
+.lined {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 30px;
+  top: 18px;
+}
+.lineMainLink {
+  align-items: center;
+  background-color: white;
+}
+
+/* ここからLINEフッター */
+.lineLink {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.lineIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+}
+.lineFooter {
+  background-color: rgb(95, 223, 91);
+  width: 288px;
+  height: 80px;
+  border-radius: 16px;
+  text-align: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lineText {
+  text-align: left;
+  margin-left: 13px;
+  margin-right: 0px;
+  font-weight: bold;
+}
+.lineDark {
+  color: white;
+  margin-left: 25px;
+}
+
+/* ここからPOSSEロゴフッター */
+.footer {
+  width: 984px;
+  margin: 0 auto;
+}
+.posseLogoFooter {
+  text-align: center;
+}
+.topFooterPage {
+  list-style: none;
+  text-align: center;
+  margin-top: 25px;
+}
+.tiFooter {
+  display: flex;
+  margin-top: 35px;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 84px;
+}
+.twitterFooter {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 1px #000;
+  text-align: center;
+}
+.twitterIconFooter {
+  width: 25px;
+  height: 20px;
+  transform: translate(0px, 15px);
+}
+.instagramFooter {
+  width: 50px;
+  height: 50px;
+  margin-left: 16px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 1px #000;
+  text-align: center;
+}
+.instagramIconFooter {
+  width: 24px;
+  height: 24px;
+  transform: translate(0px, 13px);
+}
+.copyRight {
+  text-align: center;
+  margin-bottom: 32px;
+}

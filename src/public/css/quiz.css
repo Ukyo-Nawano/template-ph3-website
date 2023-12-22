@@ -1,0 +1,466 @@
+@charset "UTF-8";
+/* ここからヘッダー */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+main {
+  width: 984px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  padding-left: 24px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: fixed;
+  z-index: 1;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.header_posse {
+  padding-left: 10px;
+  z-index: 90;
+}
+.header_nav {
+  display: flex;
+}
+.header_nav_ul {
+  display: flex;
+  list-style: none;
+}
+.header_nav_ul_top {
+  margin-right: 32px;
+  margin-top: 15px;
+}
+.header_nav_ul_quiz {
+  margin-top: 15px;
+}
+.header_nav_line {
+  display: none;
+}
+.header_nav_site {
+  display: none;
+}
+.header_nav_sns {
+  display: flex;
+  list-style: none;
+  padding-right: 24px;
+}
+.header_nav_sns_icon {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 1px #000;
+  text-align: center;
+}
+.header_nav_sns_icon_img {
+  width: 25px;
+  height: 25px;
+  transform: translate(0px, 13px);
+}
+
+#header_button {
+  display: none;
+}
+
+/* ここからheroページ */
+.hero {
+  background-image: url(../images/bg-hero.png);
+  background-position: center;
+  background-size: 110%;
+  background-repeat: no-repeat;
+  color: white;
+  font-weight: bold;
+  padding-top: 200px;
+  padding-bottom: 40px;
+}
+.hero_quiz {
+  width: 984px;
+  margin: 0 auto;
+}
+.hero_quiz_posse {
+  font-size: 18px;
+  margin: 0 auto;
+}
+.hero_quiz_it {
+  font-size: 60px;
+  margin-top: 12px;
+  margin-bottom: 150px;
+}
+
+/* ここからquizページ */
+.main {
+  width: 984px;
+  margin: 0 auto;
+}
+
+.quiz_statement {
+  width: 100%;
+  margin-top: 50px;
+}
+.quiz_statement_q {
+  background-color: #0071bc;
+  border-radius: 8px;
+  color: white;
+  font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif;
+  font-size: 36px;
+  width: 80px;
+  height: 70px;
+  font-weight: bold;
+  line-height: 1.5;
+  padding: 8px 12px 8px 14px;
+  margin-bottom: 24px;
+}
+.quiz_statement_a {
+  background-color: #e34e70;
+  width: 60px;
+  padding: 10px 16px 10px 16px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.quiz_statement_text {
+  font-size: 36px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+.quiz_main {
+  text-align: center;
+  margin-top: 64px;
+}
+.quiz_main_picture {
+  width: 700px;
+}
+.quiz_block {
+  width: 100%;
+}
+.quiz_block_answer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  background-image: none;
+}
+.choice{
+  list-style: none;
+}
+.choice_flex{
+  display: flex;
+}
+.quiz_img{
+  width:80%;
+  margin: 0 auto;
+}
+.quiz_block_answer_button {
+  border: solid 5px rgb(227, 224, 224);
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 19px;
+  line-height: 1.8;
+  width: 300px;
+  cursor: pointer;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-image: url(../imgages/icon-arrow.png);
+  background-repeat: no-repeat;
+  background-position: right 10% bottom 50%;
+}
+.quiz_false {
+  display: none;
+  background-color: rgb(233, 243, 248);
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 24px 40px;
+}
+.quiz_false_result {
+  color: rgb(55, 102, 255);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+.quiz_false_block {
+  display: flex;
+  align-items: baseline;
+}
+.quiz_false_block_font {
+  font-size: 24px;
+  font-weight: bold;
+}
+.quiz_false_block_text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 18px;
+}
+.quiz_right {
+  display: none;
+  background-color: rgb(255, 242, 245);
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 24px 40px;
+}
+.quiz_right_result {
+  color: rgb(227, 78, 112);
+}
+.quiz_cite {
+  background-color: rgb(244, 244, 244);
+  border-radius: 8px;
+  width: 100%;
+  height: 80px;
+  background-image: url(../images/icon-note.png);
+  background-repeat: no-repeat;
+  padding-top: 28px;
+  padding-bottom: 30px;
+  padding-left: 75px;
+  font-weight: bold;
+  font-size: 18px;
+  background-position: left 3% bottom 50%;
+}
+
+#quiz_block_answer > li > button.correct {
+  background-color: #dcebf5;
+  border: solid 5px #0071BC;
+  background-image: none;
+}
+
+#arrow {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+}
+
+/* ここからline_mainページ */
+.line {
+  background: url(../images/bg-line.png);
+  border-radius: 56px;
+  height: 357px;
+  padding: 68px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 136px;
+  font-weight: bold;
+}
+.line::before {
+  background-color: rgb(0, 113, 201);
+  content: "";
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  border-radius: 56px;
+  position: absolute;
+}
+.line_content {
+  align-items: center;
+}
+.line_content_icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  position: absolute;
+  left: 300px;
+}
+.line_content_title {
+  display: flex;
+  justify-content: center;
+}
+.line_content_title_text {
+  position: absolute;
+  font-size: 36px;
+  color: white;
+}
+.line_text {
+  position: absolute;
+  text-align: center;
+  top: 150px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  line-height: 1.8;
+  color: white;
+}
+.line_link {
+  align-items: center;
+  background-color: white;
+}
+.line_link_add {
+  position: absolute;
+  display: flex;
+  background-color: white;
+  border-radius: 50px;
+  width: 320px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  top: 250px;
+  left: 34%;
+}
+.line_link_add_img {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 30px;
+  top: 40%;
+}
+
+/* ここからフッター */
+.footer {
+  margin: 0 auto;
+}
+.footer_logo {
+  text-align: center;
+}
+.footer_nav_page {
+  list-style: none;
+  text-align: center;
+  margin-top: 25px;
+}
+.footer_nav_sns {
+  display: flex;
+  margin-top: 35px;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 84px;
+}
+.footer_nav_sns_twitter {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 1px #000;
+  text-align: center;
+}
+.footer_nav_sns_twitter_icon {
+  width: 25px;
+  height: 20px;
+  transform: translate(0px, 15px);
+}
+.footer_nav_sns_instagram {
+  margin-left: 16px;
+}
+.footer_nav_sns_instagram_icon {
+  width: 24px;
+  height: 24px;
+  transform: translate(0px, 13px);
+}
+.footer_copy {
+  text-align: center;
+  margin-bottom: 32px;
+}/*# sourceMappingURL=quiz.css.map */
+
+
+.route{
+  padding:10px;
+}
+
+/* ここからmodalページ */
+.modalMain{
+  flex-direction: column;
+  background-color: #fff;
+  border-radius:30px;
+  position: relative;
+  width:80%;
+  padding: 50px;
+  position: fixed;
+  top: 7%;
+  left:10%;
+  z-index: 1050;
+  display: flex;
+  margin: 0 auto;
+  display: none;
+}
+.active{
+  animation: slideIn 0.8s;
+}
+@keyframes slideIn {
+  0% {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+  100% {
+  opacity: 1;
+  transform: translateY(0px);
+}
+}
+.nonactive{
+  animation: slideOut 0.8s;
+  /* display: none; */
+}
+@keyframes slideOut {
+  0% {
+  opacity: 1;
+  transform: translateY(0);
+}
+  100% {
+  opacity: 0;
+  display: none;
+  transform: translateY(-100px);
+}
+}
+.nonactiveLoad{
+  animation: slideOut 2.5s;
+}
+#modalOverlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.page{
+  width:50px;
+  display: flex;
+}
+
+/* カスタムページネーションスタイル */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.pagination li {
+  margin: 0 5px; /* リンク間の余白を調整 */
+}
+
+.pagination a {
+  text-decoration: none;
+  padding: 10px 15px;
+  margin:10px;
+  background-color: #3490dc; /* リンクの背景色 */
+  color: #ffffff; /* リンクのテキスト色 */
+  border-radius: 5px; /* 角丸化 */
+}
+
+.pagination a:hover {
+  background-color: #2779bd; /* ホバー時の背景色 */
+}
+
+.pagination svg{
+  width:35px;
+  vertical-align: middle;
+}
+
+.pagination p{
+  margin:40px;
+}
