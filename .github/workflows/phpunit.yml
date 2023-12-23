@@ -24,7 +24,7 @@ jobs:
         run: |
           docker-compose up -d
           cp src/.env.example src/.env
-          docker-compose exec -T app composer install
-          docker-compose exec -T app php artisan key:generate
-          docker-compose exec -T app php artisan migrate --seed
-          docker-compose exec -T app vendor/bin/phpunit
+          docker-compose exec -T app sh composer install
+          docker-compose exec -T app sh php artisan key:generate
+          docker-compose exec -T app sh php artisan migrate --seed
+          docker-compose exec -T app sh vendor/bin/phpunit
