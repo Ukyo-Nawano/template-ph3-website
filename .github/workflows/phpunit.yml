@@ -24,7 +24,7 @@ jobs:
         run: |
           docker-compose up -d
           cp src/.env.example src/.env
-          docker-compose exec -T app sh -c "export PATH=$PATH:/usr/src/app/vendor/bin && composer install"
-          docker-compose exec -T app sh -c "export PATH=$PATH:/usr/local/bin && php artisan key:generate"
-          docker-compose exec -T app sh -c "export PATH=$PATH:/usr/local/bin && php artisan migrate --seed"
+          docker-compose exec -T app composer install
+          docker-compose exec -T app php artisan key:generate
+          docker-compose exec -T app php artisan migrate --seed
           docker-compose exec -T app sh vendor/bin/phpunit
