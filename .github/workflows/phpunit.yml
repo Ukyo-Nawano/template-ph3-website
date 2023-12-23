@@ -8,6 +8,9 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
+          MYSQL_CONNECTION: mysql
+          MYSQL_HOST: mysql:8.0
+          MYSQL_PORT: 3306
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: website
           MYSQL_USER: posse
