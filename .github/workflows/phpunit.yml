@@ -11,7 +11,7 @@ jobs:
       - name: '環境の起動とテスト'
         run: |
           docker-compose up -d
-          while ! docker-compose exec -T db mysqladmin ping --host=127.0.0.1 --user=laravel --password=password --silent; do
+          while ! docker-compose exec -T db mysqladmin ping --host=127.0.0.1 --user=root --password=password --silent; do
             echo "mysqlの起動を待っています"
             sleep 1
           done
