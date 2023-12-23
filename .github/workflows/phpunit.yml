@@ -1,9 +1,18 @@
 name: PHPUnitの実行
-on: [push]
-
+on: [ push ]
 jobs:
   phpunit:
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: website
+          MYSQL_USER: posse
+          MYSQL_PASSWORD: password
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: 'リポジトリのチェックアウト'
@@ -14,14 +23,8 @@ jobs:
       - name: '環境の起動とテスト'
         run: |
           docker-compose up -d
-          until docker-compose exec -T db mysqladmin ping --host=127.0.0.1 --user=root --password=password --silent; do
-            echo "mysqlの起動を待っています"
-            sleep 1
-          done
           cp src/.env.example src/.env
           docker-compose exec -T app composer install
           docker-compose exec -T app php artisan key:generate
           docker-compose exec -T app php artisan migrate --seed
-
-      - name: 'PHPUnitの実行'
-        run: docker-compose exec -T app vendor/bin/phpunit
+          docker-compose exec -T app vendor/bin/phpunit
