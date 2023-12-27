@@ -12,7 +12,7 @@ jobs:
           MYSQL_DATABASE: website
           MYSQL_USER: posse
           MYSQL_PASSWORD: password
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: リポジトリをチェックアウト
@@ -26,6 +26,7 @@ jobs:
           cp src/.env.example src/.env
           docker-compose exec -T app composer install
           docker-compose exec -T app php artisan key:generate
+          docker-compose exec -T app sh -c "until mysqladmin ping -hmysql -u${DB_USERNAME} -p${DB_PASSWORD}; do sleep 1; done"
           docker-compose exec -T app php artisan migrate --seed
 
       - name: PHPUnitの実行
