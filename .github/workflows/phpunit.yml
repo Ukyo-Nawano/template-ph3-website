@@ -8,9 +8,6 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_CONNECTION: mysql
-          MYSQL_HOST: mysql:8.0
-          MYSQL_PORT: 3306
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: website
           MYSQL_USER: posse
@@ -30,4 +27,7 @@ jobs:
           docker-compose exec -T app composer install
           docker-compose exec -T app php artisan key:generate
           docker-compose exec -T app php artisan migrate --seed
+
+      - name: PHPUnitの実行
+        run: |
           docker-compose exec -T app sh vendor/bin/phpunit
