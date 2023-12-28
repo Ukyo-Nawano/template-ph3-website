@@ -41,4 +41,4 @@ jobs:
       - name: PHPUnitの実行
         run: |
           cd src
-          sh vendor/bin/phpunit
+          php vendor/bin/phpunit
