@@ -1,5 +1,6 @@
 name: PHPUnitの実行
-on: [ push ]
+on: [push]
+
 jobs:
   phpunit:
     runs-on: ubuntu-latest
@@ -12,7 +13,7 @@ jobs:
           MYSQL_DATABASE: website
           MYSQL_USER: posse
           MYSQL_PASSWORD: password
-          options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: リポジトリをチェックアウト
@@ -20,12 +21,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 環境の起動とテスト
+      - name: 環境の起動とMySQLへの接続待ち
         run: |
           docker-compose up -d
           cp src/.env.example src/.env
-          docker-compose exec -T app composer install
-          docker-compose exec -T app php artisan key:generate
-          docker-compose exec -T app sh -c "until mysqladmin ping -hmysql -u${DB_USERNAME} -p${DB_PASSWORD}; do sleep 1; done"
+          until docker-compose exec -T app mysqladmin ping -hmysql -u${DB_USERNAME} -p${DB_PASSWORD}; do
+            sleep 1
+          done
+
+      - name: データベースマイグレーションとシード
+        run: |
           docker-compose exec -T app php artisan migrate --seed
+
+      - name: PHPUnitの実行
+        run: |
           docker-compose exec -T app sh vendor/bin/phpunit
