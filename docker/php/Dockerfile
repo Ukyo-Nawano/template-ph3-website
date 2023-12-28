@@ -1,5 +1,4 @@
 FROM php:8.2-fpm-alpine3.17
-COPY php.ini /usr/local/etc/php/
 
 # 必要なパッケージをインストール
 RUN apk add --no-cache \
@@ -10,13 +9,10 @@ RUN apk add --no-cache \
   curl \
   vim \
   && docker-php-ext-install zip pdo_mysql sockets \
-  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
-  && composer self-update --2 \
-  && echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # PHPの設定ファイルをコピー
 COPY php.ini /usr/local/etc/php/conf.d/custom.ini
 
 # ワーキングディレクトリを設定
 WORKDIR /work/web
-
