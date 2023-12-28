@@ -29,10 +29,16 @@ jobs:
             sleep 1
           done
 
+      - name: Composerの依存関係インストール
+        run: |
+          cd /work/web
+          composer install
+
       - name: データベースマイグレーションとシード
         run: |
           docker-compose exec -T app php artisan migrate --seed
 
       - name: PHPUnitの実行
         run: |
-          docker-compose exec -T app sh vendor/bin/phpunit
+          cd /work/web
+          sh vendor/bin/phpunit
