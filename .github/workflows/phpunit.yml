@@ -28,11 +28,9 @@ jobs:
 
       - name: 環境の起動とMySQLへの接続待ち
         run: |
-          docker-compose up -d
           cp src/.env.example src/.env
-          until docker-compose exec -T app mysqladmin ping -hmysql -u${DB_USERNAME} -p${DB_PASSWORD}; do
-            sleep 1
-          done
+          docker-compose up -d
+          sleep 10
 
       - name: データベースマイグレーションとシード
         run: |
