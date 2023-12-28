@@ -8,10 +8,16 @@ RUN apk add --no-cache \
   mariadb-client \
   unzip \
   curl \
-  vim \
-  && docker-php-ext-install zip pdo_mysql sockets \
-  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
-  && echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+  vim
+
+# 必要なPHP拡張をインストール
+RUN docker-php-ext-install zip pdo_mysql sockets
+
+# Composerのインストール
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
+# Composerのバイナリを使えるようにする
+RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 
 # PHPの設定ファイルをコピー
 COPY php.ini /usr/local/etc/php/conf.d/custom.ini
