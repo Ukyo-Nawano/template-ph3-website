@@ -21,16 +21,17 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: 環境の起動とMySQLへの接続待ち
+        run: |
+          docker-compose up -d
+          cp src/.env.example src/.env
+          docker-compose exec -T app wait-for-it --timeout=120 mysql:3306
+        continue-on-error: true
+
       - name: Composerの依存関係インストール
         run: |
           cd src
           composer install
-
-      - name: 環境の起動とMySQLへの接続待ち
-        run: |
-          cp src/.env.example src/.env
-          docker-compose up -d
-          sleep 10
 
       - name: データベースマイグレーションとシード
         run: |
