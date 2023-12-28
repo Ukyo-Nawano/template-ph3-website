@@ -1,4 +1,4 @@
-FROM php:8.1.17-fpm-alpine3.17
+FROM php:8.2-fpm-alpine3.17
 COPY php.ini /usr/local/etc/php/
 
 # 必要なパッケージをインストール
