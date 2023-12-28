@@ -16,6 +16,7 @@ RUN docker-php-ext-install zip pdo_mysql sockets
 
 # Composerのインストール
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+RUN composer self-update --2
 
 # Composerのバイナリを使えるようにする
 RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
