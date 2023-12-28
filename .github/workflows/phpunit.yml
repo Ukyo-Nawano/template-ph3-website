@@ -21,18 +21,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 環境の起動とMySQLへの接続待ち
-        run: |
-          docker-compose up -d
-          cp src/.env.example src/.env
-          until docker-compose exec -T app mysqladmin ping -hmysql -u${DB_USERNAME} -p${DB_PASSWORD}; do
-            sleep 1
-          done
-
       - name: Composerの依存関係インストール
         run: |
           cd src
           composer install
+
+      - name: 環境の起動とMySQLへの接続待ち
+        run: |
+          cp src/.env.example src/.env
+          docker-compose up -d
+          until docker-compose exec -T app php artisan migrate:status; do
+            sleep 1
+          done
 
       - name: データベースマイグレーションとシード
         run: |
