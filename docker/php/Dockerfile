@@ -8,7 +8,8 @@ RUN apk add --no-cache \
   mariadb-client \
   unzip \
   curl \
-  vim
+  vim \
+  linux-headers
 
 # 必要なPHP拡張をインストール
 RUN docker-php-ext-install zip pdo_mysql sockets
