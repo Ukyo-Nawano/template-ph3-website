@@ -31,7 +31,7 @@ jobs:
 
       - name: Composerの依存関係インストール
         run: |
-          cd /work/web
+          cd src  # ディレクトリが src にあると仮定
           composer install
 
       - name: データベースマイグレーションとシード
@@ -40,5 +40,5 @@ jobs:
 
       - name: PHPUnitの実行
         run: |
-          cd /work/web
+          cd src  # ディレクトリが src にあると仮定
           sh vendor/bin/phpunit
