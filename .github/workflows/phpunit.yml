@@ -26,9 +26,9 @@ jobs:
           docker-compose up -d
           docker-compose logs
           cp src/.env.example src/.env
-          until docker-compose exec -T app php -r 'exit(mysqli_ping(mysqli_connect(getenv("DB_HOST"), getenv("DB_USERNAME"), getenv("DB_PASSWORD"), getenv("DB_DATABASE"), getenv("DB_PORT"))));' > /dev/null 2>&1; do
-          echo "Waiting for database connection..."
-            sleep 1
+          docker-compose exec -T db mysqladmin ping --host=127.0.0.1 --user=posse --password=password --silent; do
+          echo "mysqlの起動を待っています"
+          sleep 1
           done
         env:
           DB_HOST: mysql
