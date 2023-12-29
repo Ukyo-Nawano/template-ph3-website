@@ -21,12 +21,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Docker Composeのセットアップ
+      - name: 環境の起動とMySQLへの接続待ち
         run: |
           docker-compose up -d
           cp src/.env.example src/.env
           until docker-compose exec -T mysql mysqladmin ping -u${MYSQL_USER} -p${MYSQL_PASSWORD}; do
-            sleep 1
+          sleep 1
           done
 
       - name: Composerの依存関係インストール
@@ -41,4 +41,4 @@ jobs:
       - name: PHPUnitの実行
         run: |
           cd src
-          docker exec -T app ./vendor/bin/phpunit
+          docker exec -it app ./vendor/bin/phpunit
