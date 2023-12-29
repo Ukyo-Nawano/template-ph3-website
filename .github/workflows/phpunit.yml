@@ -25,8 +25,9 @@ jobs:
         run: |
           docker-compose up -d
           cp src/.env.example src/.env
-          docker-compose exec -T app wait-for-it --timeout=120 mysql:3306
-        continue-on-error: true
+          until docker-compose exec -T app mysqladmin ping -hmysql -u${DB_USERNAME} -p${DB_PASSWORD}; do
+            sleep 1
+          done
 
       - name: Composerの依存関係インストール
         run: |
