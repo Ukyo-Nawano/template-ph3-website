@@ -17,6 +17,7 @@ services:
       - MYSQL_PASSWORD=password
       - TZ=Asia/Tokyo
       - MYSQL_AUTH_PLUGIN=mysql_native_password
+      - PHP_DATE_TIMEZONE=Asia/Tokyo
 
   app:
     build: ./docker/php
