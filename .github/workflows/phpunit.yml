@@ -24,7 +24,7 @@ jobs:
       - name: 環境の起動とMySQLへの接続待ち
         run: |
           docker-compose up -d
-          docker-compose logs
+          docker-compose logs web
           cp src/.env.example src/.env
           docker-compose exec -T db mysqladmin ping --host=127.0.0.1 --user=posse --password=password --silent
           while [ $? -ne 0 ]; do
