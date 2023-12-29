@@ -25,7 +25,7 @@ jobs:
         run: |
           docker-compose up -d
           cp src/.env.example src/.env
-          until docker-compose exec -T app php -r 'exit(mysqli_ping(mysqli_connect(getenv("DB_HOST"), getenv("DB_USERNAME"), getenv("DB_PASSWORD"), getenv("DB_DATABASE"), getenv("DB_PORT")));' > /dev/null 2>&1; do
+          until docker-compose exec -T app php -r 'exit(mysqli_ping(mysqli_connect(getenv("DB_HOST"), getenv("DB_USERNAME"), getenv("DB_PASSWORD"), getenv("DB_DATABASE"), getenv("DB_PORT"))));' > /dev/null 2>&1; do
             sleep 1
           done
         env:
@@ -47,4 +47,4 @@ jobs:
       - name: PHPUnitの実行
         run: |
           cd src
-          DB_HOST=mysql DB_PORT=3306 DB_DATABASE=website DB_USERNAME=posse DB_PASSWORD=password php vendor/bin/phpunit
+          php vendor/bin/phpunit
