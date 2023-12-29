@@ -26,13 +26,14 @@ jobs:
           docker-compose up -d
           docker-compose logs web
           cp src/.env.example src/.env
-          docker-compose exec -T db mysqladmin ping --host=127.0.0.1 --user=posse --password=password --silent
+          docker-compose exec -T db mysqladmin ping --host=mysql --user=posse --password=password --silent
           while [ $? -ne 0 ]; do
-            echo "mysqlの起動を待っています"
+            echo "MySQLの起動を待っています"
             sleep 1
-            docker-compose exec -T db mysqladmin ping --host=127.0.0.1 --user=posse --password=password --silent
+            docker-compose exec -T db mysqladmin ping --host=mysql --user=posse --password=password --silent
           done
         env:
+          DB_CONNECTION: mysql
           DB_HOST: mysql
           DB_PORT: 3306
           DB_DATABASE: website
